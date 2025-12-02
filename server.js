@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { pool } from "./db.js";
 import { initTables } from "./modals/initTables.js";
+import { seedSkills } from "./seedSkills.js";
 
 dotenv.config();
 
@@ -12,6 +13,8 @@ console.log("🔍 Loaded PGPASSWORD:", typeof process.env.DB_PASS);
   try {
     await pool.query(`Select Now()`);
     await initTables();
+    await seedSkills();
+
     console.log(" db connected sucessfully");
   } catch (error) {
     console.log(error);

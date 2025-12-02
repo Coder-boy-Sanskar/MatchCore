@@ -91,7 +91,7 @@ export const initTables = async () => {
   } catch (err) {
     console.error("❌ Error creating tables:", err);
   } finally {
-    pool.end(); // close connection
+    // pool.end(); // close connection
   }
 };
 
